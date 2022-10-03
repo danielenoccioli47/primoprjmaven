@@ -8,8 +8,12 @@ public class App
 {
     public static void main( String[] args )
     {
-        server ilmioserver = new server();
-        ilmioserver.attendi();
-        ilmioserver.comunica();
+        while (true)
+        {
+            server ilmioserver = new server();
+            ilmioserver.attendi();
+            ilmioserver.comunica();
+        }
+        
     }
 }
