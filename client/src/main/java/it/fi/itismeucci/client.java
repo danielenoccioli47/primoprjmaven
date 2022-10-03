@@ -36,9 +36,9 @@ public class client {
 
     public void comincia(){
         try{
-            System.out.println("inserisci la stringa da trasmettere  al server"+"\n");
+            System.out.println("benvenuto, scrivi una frase"+"\n");
             stringaUtente = tastiera.readLine();
-            System.out.println("invio la stringa al server e attendo");
+            System.out.println("invio la stringa al server e attendo.");
             outVersoServer.writeBytes(stringaUtente+"\n");
             strigaRicevDalServer = inDalServer.readLine();
             System.out.println("risposta dal server "+"\n"+strigaRicevDalServer);

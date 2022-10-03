@@ -8,12 +8,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        while (true)
-        {
-            server ilmioserver = new server();
-            ilmioserver.attendi();
-            ilmioserver.comunica();
-        }
-        
+        server ilmioserver = new server();
+        ilmioserver.attendi();
     }
 }
