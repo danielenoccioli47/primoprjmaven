@@ -1,3 +1,5 @@
+package it.fi.itismeucci;
+
 import java.io.*;
 import java.net.*;
 
@@ -20,16 +22,16 @@ public class client {
             tastiera = new BufferedReader(new InputStreamReader(System.in));
 
             //creo il soket
-            mioSocket = new Socket(nomeServer, portaServer);
+            ilmioSoket = new Socket(nomeServer, portaServer);
 
-            outVersoServer = new DataOutputStream(mioSocket.getOutputStream());
-            inDalServer = new BufferedReader(mioSocket.getInputStream());
+            outVersoServer = new DataOutputStream(ilmioSoket.getOutputStream());
+            inDalServer = new BufferedReader(new InputStreamReader(ilmioSoket.getInputStream()));
         }catch(Exception e){
             System.out.println(e.getMessage());
             System.out.println("errore durante la connessione");
             System.exit(1);
         }
-        return mioSocket;    
+        return ilmioSoket;    
     }
 
     public void comincia(){
@@ -41,7 +43,7 @@ public class client {
             strigaRicevDalServer = inDalServer.readLine();
             System.out.println("risposta dal server "+"\n"+strigaRicevDalServer);
             //chiudo la connessione
-            mioSocket.close();
+            ilmioSoket.close();
         }catch(Exception e){
             System.out.println(e.getMessage());
             System.out.println("errore durante la connessione");
