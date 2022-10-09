@@ -51,8 +51,20 @@ public class server extends Thread{
         outVersoClient = new DataOutputStream(client.getOutputStream());
         for(;;){
             ricevuto = inDalClient.readLine();
-
+            if(ricevuto == null || ricevuto.equals("FINE")){
+                outVersoClient.writeBytes(ricevuto+"(=> server in chiusura...)"+ "/n");
+                System.out.println("echo sul server in chiusura :" + ricevuto);
+                break;
+            }
+            else{
+                outVersoClient.writeBytes(ricevuto + "(ricewvuta e ritrasmessa)" + "/n");
+                System.out.println("6 echo sul server:" + ricevuto);
+            }
         }
+        outVersoClient.close();
+        inDalClient.close();
+        System.out.println("9 chiusura socket" + client);
+        client.close();
             /*ricevuto=inDalClient.readLine();
             System.out.println("messaggio: " + ricevuto);
             modificato=ricevuto.toUpperCase();

@@ -15,7 +15,7 @@ public class client {
 
 
     public Socket connetti(){
-        System.out.println("il client è ora in esecuzione");
+        System.out.println("2 il client è ora in esecuzione");
 
         try{
             //x imput da tastiera
@@ -26,7 +26,10 @@ public class client {
 
             outVersoServer = new DataOutputStream(ilmioSoket.getOutputStream());
             inDalServer = new BufferedReader(new InputStreamReader(ilmioSoket.getInputStream()));
-        }catch(Exception e){
+        }catch(UnknownHostException u){
+            System.out.println("host sconosciuto");    
+        }
+        catch(Exception e){
             System.out.println(e.getMessage());
             System.out.println("errore durante la connessione");
             System.exit(1);
@@ -35,20 +38,30 @@ public class client {
     }
 
     public void comincia(){
-        try{
-            System.out.println("benvenuto, scrivi una frase"+"\n");
-            stringaUtente = tastiera.readLine();
-            System.out.println("invio la stringa al server e attendo.");
-            outVersoServer.writeBytes(stringaUtente+"\n");
-            strigaRicevDalServer = inDalServer.readLine();
-            System.out.println("risposta dal server "+"\n"+strigaRicevDalServer);
-            //chiudo la connessione
-            ilmioSoket.close();
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-            System.out.println("errore durante la connessione");
-            System.exit(1);
+        for(;;){
+
+            try{
+                System.out.println("4 benvenuto, scrivi una frase"+"\n");
+                stringaUtente = tastiera.readLine();
+                System.out.println("5 invio la stringa al server e attendo.");
+                outVersoServer.writeBytes(stringaUtente+"\n");
+                strigaRicevDalServer = inDalServer.readLine();
+                System.out.println("7 risposta dal server "+"\n"+strigaRicevDalServer);
+               
+                if(strigaRicevDalServer.equals("FINE"){
+                    System.out.println("8 client: termina operazione e chiude la connessione");
+                    ilmioSoket.close();
+                    break;
+                }
+                
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+                System.out.println("errore durante la connessione");
+                System.exit(1);
+            }
+
         }
+        
     }
 
 }
