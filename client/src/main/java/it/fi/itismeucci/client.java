@@ -37,7 +37,7 @@ public class client {
         return ilmioSoket;    
     }
 
-    public void comincia(){
+    public void comunica(){
         for(;;){
 
             try{
@@ -48,7 +48,7 @@ public class client {
                 strigaRicevDalServer = inDalServer.readLine();
                 System.out.println("7 risposta dal server "+"\n"+strigaRicevDalServer);
                
-                if(strigaRicevDalServer.equals("FINE"){
+                if(strigaRicevDalServer.equals("FINE")){
                     System.out.println("8 client: termina operazione e chiude la connessione");
                     ilmioSoket.close();
                     break;

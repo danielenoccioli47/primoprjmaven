@@ -9,6 +9,6 @@ public class App
     public static void main( String[] args )
     {
         multiServer ilmioservertcp = new multiServer();
-        ilmioservertcp.start();
+        ilmioservertcp.inizia();
     }
 }

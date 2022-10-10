@@ -10,6 +10,6 @@ public class App
     {
         client ilmiocClient = new client();
         ilmiocClient.connetti();
-        ilmiocClient.comincia();
+        ilmiocClient.comunica();
     }
 }
