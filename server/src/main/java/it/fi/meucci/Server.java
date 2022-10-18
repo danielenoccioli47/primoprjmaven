@@ -32,12 +32,12 @@ class Server extends Thread{
             ricevuto = inDalClient.readLine();
             //se il messaggio ricevuto dal client è 'FINE' ...
             if(ricevuto == null || ricevuto.equals("FINE")){
-                outVersoClient.writeBytes(ricevuto+"(=> server in chiusura...)"+ "\n");
+                outVersoClient.writeBytes(ricevuto+"(=> server in chiusura...)"+ '\n');
                 System.out.println("echo sul server in chiusura :" + ricevuto);
                 break;
             }
             else{
-                outVersoClient.writeBytes(ricevuto + "(ricevuta e ritrasmessa)" + "\n");
+                outVersoClient.writeBytes(ricevuto + "(ricevuta e ritrasmessa)" + '\n');
                 System.out.println("6 echo sul server:" + ricevuto);
             }
         }

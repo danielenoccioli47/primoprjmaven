@@ -46,13 +46,13 @@ public class Client {
                 stringaUtente = tastiera.readLine();
                 System.out.println("5 invio la stringa al server e attendo.");
                 //trasformo la stringa in bytes e la inoltro al server tramite il socket
-                outVersoServer.writeBytes(stringaUtente+"\n");
+                outVersoServer.writeBytes(stringaUtente+ '\n');
                 //aspetto e leggo la risposta dal server
                 strigaRicevDalServer = inDalServer.readLine();
-                System.out.println("7 risposta dal server "+"\n"+strigaRicevDalServer);
+                System.out.println("7 risposta dal server "+'\n'+strigaRicevDalServer);
                
                 //se il messaggio ricevuto dal server è FINE allora chiudo il socket
-                if(strigaRicevDalServer.equals("FINE")){
+                if(strigaRicevDalServer.equals("FINE(=> server in chiusura...)")){
                     System.out.println("8 client: termina operazione e chiude la connessione");
                     ilmioSoket.close();
                     break;
