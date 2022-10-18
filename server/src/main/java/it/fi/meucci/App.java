@@ -8,7 +8,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        multiServer ilmioservertcp = new multiServer();
+        MultiServer ilmioservertcp = new MultiServer();
         ilmioservertcp.inizia();
     }
 }

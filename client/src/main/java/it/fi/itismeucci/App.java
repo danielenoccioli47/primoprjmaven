@@ -8,7 +8,10 @@ public class App
 {
     public static void main( String[] args )
     {
-        client ilmiocClient = new client();
+        //creo il client
+        Client ilmiocClient = new Client();
+
+        //ottengo il socket
         ilmiocClient.connetti();
         ilmiocClient.comunica();
     }
